@@ -872,8 +872,11 @@
           </div>
 
           <p class="text-gray-700 leading-relaxed">
-            "${escapeHtml(review.text)}"
-          </p>
+            "${escapeHtml(
+                review.text.length > 180
+                ? review.text.slice(0, 180) + "..."
+                : review.text
+            )}"</p>
 
           ${
             review.authorUri
