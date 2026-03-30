@@ -256,6 +256,76 @@
         }
     </style>
 </head>
+
+<script>
+  function renderStars(rating) {
+    return "★".repeat(Math.round(rating)) + "☆".repeat(5 - Math.round(rating));
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text || "";
+    return div.innerHTML;
+  }
+
+  async function loadGoogleReviews() {
+    const container = document.getElementById("google-reviews");
+    const summary = document.getElementById("reviews-summary");
+
+    try {
+      const response = await fetch("/.netlify/functions/google-reviews");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Erro ao carregar avaliações.");
+      }
+
+      summary.textContent = `${data.userRatingCount}+ avaliações • nota ${data.rating} no Google`;
+
+      if (!data.reviews || data.reviews.length === 0) {
+        container.innerHTML = "<p class='text-center col-span-full text-gray-500'>Nenhuma avaliação disponível no momento.</p>";
+        return;
+      }
+
+      container.innerHTML = data.reviews.map((review) => `
+        <div class="review-card card-shadow card-hover">
+          <div class="flex items-center gap-4 mb-4">
+            ${
+              review.authorPhoto
+                ? `<img src="${review.authorPhoto}" alt="${escapeHtml(review.authorName)}" class="w-14 h-14 rounded-full object-cover">`
+                : `<div class="review-avatar">${escapeHtml(review.authorName.charAt(0))}</div>`
+            }
+            <div>
+              <h4 class="font-bold text-gray-900">${escapeHtml(review.authorName)}</h4>
+              <div class="star-rating">${renderStars(review.rating)}</div>
+              <div class="text-gray-400 text-sm">${escapeHtml(review.relativeTime)}</div>
+            </div>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">
+            "${escapeHtml(review.text)}"
+          </p>
+
+          ${
+            review.authorUri
+              ? `<a href="${review.authorUri}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-sm font-medium primary-blue">
+                  Ver perfil no Google
+                </a>`
+              : ""
+          }
+        </div>
+      `).join("");
+    } catch (error) {
+      summary.textContent = "Não foi possível carregar as avaliações agora.";
+      container.innerHTML = "<p class='text-center col-span-full text-gray-500'>Erro ao carregar avaliações.</p>";
+      console.error(error);
+    }
+  }
+
+  loadGoogleReviews();
+</script>
+
+
 <body>
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
@@ -340,7 +410,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            O Problema com Braces Tradicionais
+                            O Problema com os <br> Aparelhos Tradicionais
                         </h2>
                         <ul class="space-y-4">
                             <li class="flex items-start gap-4">
@@ -352,12 +422,16 @@
                                 <span class="text-gray-700">Aparência metálica visível</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="text-2xl" style="color: #3A61A7;">✓</span>
-                                <span class="text-gray-700 font-semibold">Tecnologia Moderna</span>
+                                <span class="text-2xl text-red-500 flex-shrink-0">✗</span>
+                                <span class="text-gray-700">Dificuldade na higienização</span>
+                            </li>
+                           <li class="flex items-start gap-4">
+                                <span class="text-2xl text-red-500 flex-shrink-0">✗</span>
+                                <span class="text-gray-700">Falta de previsibilidade</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="text-2xl" style="color: #3A61A7;">✓</span>
-                                <span class="text-gray-700 font-semibold">Atendimento Personalizado</span>
+                                <span class="text-2xl text-red-500 flex-shrink-0">✗</span>
+                                <span class="text-gray-700">Longo tempo de tratamento</span>
                             </li>
                         </ul>
                     </div>
@@ -387,7 +461,7 @@
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">
                                 <span class="text-2xl" style="color: #3A61A7;">✓</span>
-                                <span class="text-gray-700">100% invísivel e discreto</span>
+                                <span class="text-gray-700">Transparente e discreto</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="text-2xl" style="color: #3A61A7;">✓</span>
@@ -400,6 +474,14 @@
                             <li class="flex items-center gap-3">
                                 <span class="text-2xl" style="color: #3A61A7;">✓</span>
                                 <span class="text-gray-700">Resultados comprovados e previsíveis</span>
+                            </li>
+                             <li class="flex items-center gap-3">
+                                <span class="text-2xl" style="color: #3A61A7;">✓</span>
+                                <span class="text-gray-700">Menor tempo de tratamento</span>
+                            </li>
+                              <li class="flex items-center gap-3">
+                                <span class="text-2xl" style="color: #3A61A7;">✓</span>
+                                <span class="text-gray-700">Sem restrições alimentares</span>
                             </li>
                         </ul>
                     </div>
@@ -521,7 +603,7 @@
                     <div class="bg-white rounded-lg p-8 card-shadow">
                         <h3 class="text-2xl font-bold mb-4" style="color: #3A61A7;">Aglomeração</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            Dentes apinhados podem ser alinhados perfeitamente com nosso tratamento personalizado.
+                            Dentes tortos podem ser alinhados perfeitamente com nosso tratamento personalizado.
                         </p>
                     </div>
                     
@@ -550,7 +632,7 @@
                         <p class="text-xl primary-blue font-semibold mb-6">26 anos de experiência</p>
                         
                         <p class="text-gray-700 mb-8 leading-relaxed">
-                            Com mais de duas décadas de experiência em ortodontia, Dr. Guilherme é especialista em tratamentos com alinhadores transparentes e tecnologia digital de ponta.
+                            Com mais de duas décadas atuando em Juatuba, o Dr. Guilherme tem grande experiência em tratamentos com alinhadores transparentes e tecnologia digital de ponta.
                         </p>
                         
                         <div class="space-y-4 mb-8">
@@ -572,7 +654,7 @@
                             <div class="flex items-center gap-2 mb-2">
                                 <span class="star-rating">★★★★★</span>
                             </div>
-                            <p class="text-gray-700 font-semibold">Mais de 100 avaliações 5 estrelas</p>
+                            <p class="text-gray-700 font-semibold">Mais de 120 avaliações 5 estrelas no Google</p>
                         </div>
                         
                         <p class="text-gray-600">
@@ -614,57 +696,19 @@
             </div>
         </section>
 
-        <!-- 8️⃣ Avaliações Section -->
-        <section class="py-20 bg-gray-50" id="avaliacoes">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">O que Nossos Pacientes Dizem</h2>
-                <p class="section-subtitle">Mais de 100 avaliações 5 estrelas no Google</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Review 1 -->
-                    <div class="review-card card-shadow card-hover">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="review-avatar">M</div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Mariana S.</h4>
-                                <div class="star-rating">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            "Excelente atendimento! Os alinhadores são realmente invisíveis e confortáveis. Meu sorriso ficou perfeito e o Dr. Guilherme foi muito atencioso durante todo o processo."
-                        </p>
-                    </div>
-                    
-                    <!-- Review 2 -->
-                    <div class="review-card card-shadow card-hover">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="review-avatar">C</div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Carlos M.</h4>
-                                <div class="star-rating">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            "Recomendo muito! Não sentia dor, conseguia comer normalmente e ninguém percebia que estava usando. Resultado incrível em menos tempo do que esperava."
-                        </p>
-                    </div>
-                    
-                    <!-- Review 3 -->
-                    <div class="review-card card-shadow card-hover">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="review-avatar">J</div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Juliana P.</h4>
-                                <div class="star-rating">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            "Melhor decisão que tomei! A clínica é moderna, limpa e o atendimento é de primeira qualidade. Meu sorriso mudou minha vida!"
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <!-- 8️⃣ Avaliações Section -->
+<section class="py-20 bg-gray-50" id="avaliacoes">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">O que Nossos Pacientes Dizem</h2>
+        <p id="reviews-summary" class="section-subtitle">Carregando avaliações...</p>
+
+        <div id="google-reviews" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+        <p class="text-center text-sm text-gray-500 mt-8">
+            Avaliações fornecidas pelo Google.
+        </p>
+    </div>
+</section>
 
         <!-- 9️⃣ FAQ Section -->
         <section class="py-20 bg-white" id="faq">
@@ -680,7 +724,7 @@
                         </button>
                         <div class="accordion-content">
                             <p class="text-gray-700 leading-relaxed">
-                                Não. Os alinhadores transparentes são muito mais confortáveis que os braces tradicionais. Você pode sentir uma leve pressão nos primeiros dias de cada novo alinhador, mas não há dor. A maioria dos pacientes se adapta rapidamente.
+                                Não. Os alinhadores transparentes são muito mais confortáveis que os aparelhos tradicionais. Você pode sentir uma leve pressão nos primeiros dias de cada novo alinhador, mas não há dor. <br> A maioria dos pacientes se adapta rapidamente.
                             </p>
                         </div>
                     </div>
@@ -693,7 +737,7 @@
                         </button>
                         <div class="accordion-content">
                             <p class="text-gray-700 leading-relaxed">
-                                O tempo varia de acordo com a complexidade do caso, mas geralmente leva entre 6 a 18 meses. Durante a consulta inicial, o Dr. Guilherme poderá estimar o tempo específico para seu caso.
+                                O tempo varia de acordo com a complexidade do caso, mas geralmente leva entre 6 a 18 meses. Durante a consulta inicial, o Dr. Guilherme poderá estimar o tempo específico para o seu caso.
                             </p>
                         </div>
                     </div>
@@ -706,7 +750,7 @@
                         </button>
                         <div class="accordion-content">
                             <p class="text-gray-700 leading-relaxed">
-                                O custo varia dependendo da complexidade do seu caso. Oferecemos diferentes planos de pagamento para tornar o tratamento mais acessível. Agende uma avaliação gratuita para receber um orçamento personalizado.
+                                O custo varia dependendo da complexidade do seu caso. Oferecemos diferentes planos de pagamento para tornar o tratamento mais acessível. Agende uma avaliação para receber um orçamento personalizado.
                             </p>
                         </div>
                     </div>
@@ -732,7 +776,7 @@
                         </button>
                         <div class="accordion-content">
                             <p class="text-gray-700 leading-relaxed">
-                                É muito fácil! Remova os alinhadores e escove os dentes normalmente. Você também pode limpar os alinhadores com água morna e uma escova de dentes macia. Isso torna a higiene bucal muito mais simples que com braces tradicionais.
+                                É muito fácil! Remova os alinhadores e escove os dentes normalmente. Você também pode limpar os alinhadores com água e uma escova de dentes macia. Isso torna a higiene bucal muito mais simples do que com os aparelhos tradicionais.
                             </p>
                         </div>
                     </div>
@@ -749,7 +793,7 @@
                             Descubra se os alinhadores são ideais para o seu sorriso
                         </h2>
                         <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                            Agende sua avaliação gratuita hoje mesmo e comece sua jornada para o sorriso perfeito. Sem compromisso, sem surpresas.
+                            Agende sua avaliação hoje mesmo e comece sua jornada para o sorriso perfeito. 
                         </p>
                         <a href="https://wa.me/5531996600144?text=Olá,%20quero%20agendar%20uma%20avaliação"
                             target="_blank"
@@ -789,7 +833,7 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contato</h4>
                     <p class="text-gray-400">Juatuba, MG</p>
-                    <p class="text-gray-400">Agende sua avaliação gratuita</p>
+                    <p class="text-gray-400">Agende sua avaliação</p>
                 </div>
             </div>
             
