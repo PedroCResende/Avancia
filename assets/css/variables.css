@@ -1,0 +1,30 @@
+/* =========================================
+   VARIABLES.CSS - Design System Avancia
+========================================= */
+
+:root {
+    /* Paleta de Cores Premium (Ajuste conforme a logo real) */
+    --color-primary: #002B5B;      /* Azul Marinho Premium */
+    --color-secondary: #D4AF37;    /* Dourado (Aplicações em botões e destaques) */
+    --color-secondary-hover: #b5952f;
+    
+    /* Cores Neutras e Backgrounds */
+    --color-bg-light: #F8F9FA;     /* Fundo suave para seções alternadas */
+    --color-bg-white: #FFFFFF;
+    --color-text-main: #333333;    /* Texto principal (nunca 100% preto para leitura agradável) */
+    --color-text-muted: #666666;   /* Textos secundários e rodapé */
+    
+    /* Tipografia (Recomendo buscar do Google Fonts no head) */
+    --font-primary: 'Montserrat', system-ui, sans-serif;
+    
+    /* Espaçamentos e Medidas (Sistema Base 8px) */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    
+    /* Bordas e Sombras */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

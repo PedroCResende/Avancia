@@ -1,0 +1,156 @@
+/* =========================================
+   ESTILOS GERAIS E COMPONENTES AVANCIA
+========================================= */
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.primary-blue { color: #3A61A7; }
+.bg-primary-blue { background-color: #3A61A7; }
+
+/* Botões e Interações */
+.cta-green { background-color: #3A61A7; }
+.cta-green:hover { background-color: #2D4A7E; }
+
+.cta-button {
+    background-color: #3A61A7;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #2D4A7E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(58, 97, 167, 0.3);
+}
+
+/* Sections e Layout */
+.hero-section {
+    background: linear-gradient(135deg, #F5F8FC 0%, #E8F2F9 100%);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+/* Cards e Ícones */
+.card-shadow { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 20px;
+}
+.icon-circle-blue { background-color: #E8F2F9; color: #3A61A7; }
+.icon-circle-green { background-color: #E8F2F9; color: #6BBEEF; }
+
+.benefit-icon { font-size: 48px; margin-bottom: 20px; }
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #3A61A7;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Accordion (FAQ) */
+.accordion-item { border-bottom: 1px solid #e0e0e0; }
+.accordion-button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background-color: #f9f9f9;
+    border: none;
+    font-weight: 600;
+    color: #333;
+}
+.accordion-button:hover { background-color: #f0f0f0; }
+.accordion-button.active { background-color: #E8F2F9; color: #3A61A7; }
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+.accordion-content.active {
+    max-height: 500px;
+    padding: 20px;
+}
+
+/* Avaliações (Google Reviews) */
+.star-rating { color: #FFD700; font-size: 16px; letter-spacing: 2px; }
+.review-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 30px;
+}
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #3A61A7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Media Queries (Responsividade) */
+@media (max-width: 768px) {
+    .section-title { font-size: 32px; }
+    .hero-section { min-height: 400px; }
+}
