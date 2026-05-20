@@ -4,9 +4,9 @@
 
 :root {
     /* Paleta de Cores Premium (Ajuste conforme a logo real) */
-    --color-primary: #002B5B;      /* Azul Marinho Premium */
-    --color-secondary: #D4AF37;    /* Dourado (Aplicações em botões e destaques) */
-    --color-secondary-hover: #b5952f;
+    --color-primary: #3A61A7;      /* Azul Oficial Avancia */
+    --color-secondary: #2D4A7E;    /* Azul Escuro */
+    --color-secondary-hover: #1E3358;
     
     /* Cores Neutras e Backgrounds */
     --color-bg-light: #F8F9FA;     /* Fundo suave para seções alternadas */
@@ -15,7 +15,7 @@
     --color-text-muted: #666666;   /* Textos secundários e rodapé */
     
     /* Tipografia (Recomendo buscar do Google Fonts no head) */
-    --font-primary: 'Montserrat', system-ui, sans-serif;
+    --font-primary: 'Poppins', system-ui, sans-serif;
     
     /* Espaçamentos e Medidas (Sistema Base 8px) */
     --spacing-sm: 8px;

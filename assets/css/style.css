@@ -149,8 +149,31 @@ body {
     margin-bottom: 15px;
 }
 
+/* HEADER GLOBAL */
+.main-header {
+    transition: all 0.3s ease;
+}
+.main-header.scrolled {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(8px);
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Media Queries (Responsividade) */
 @media (max-width: 768px) {
     .section-title { font-size: 32px; }
     .hero-section { min-height: 400px; }
 }
+
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avancia Odontologia | Sorrisos que transformam vidas</title>
+    <meta name="description" content="Clínica odontológica especializada em alinhadores invisíveis, implantes, lentes de contato dental e estética odontológica em Juatuba.">
+    <meta name="theme-color" content="#3A61A7">
+    
+    <meta property="og:title" content="Avancia Odontologia | Sorrisos que transformam vidas">
+    <meta property="og:description" content="Clínica odontológica especializada em alinhadores invisíveis, implantes e estética dental de alto padrão.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://avanciaodontologia.com.br/assets/img/fachada.webp">
+    <meta property="og:url" content="https://avanciaodontologia.com.br/">
+
+    <link rel="icon" type="image/png" href="assets/img/logo-principal.webp">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3A61A7',
+                            dark: '#2D4A7E',
+                            light: '#6BBEEF',
+                            bg: '#F5F8FC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Avancia Odontologia",
+        "image": "https://avanciaodontologia.com.br/assets/img/logo-principal.webp",
+        "description": "Clínica odontológica de alto padrão em atendimento clínico, estético e preventivo",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Pedro Alvin Pereira, 10 - 05",
+            "addressLocality": "Juatuba",
+            "addressRegion": "MG",
+            "postalCode": "35675-000",
+            "addressCountry": "BR"
+        },
+        "telephone": "+5531996600144",
+        "email": "contato@avanciaodontologia.com.br",
+        "url": "https://avanciaodontologia.com.br",
+        "priceRange": "$$",
+        "areaServed": "Juatuba, MG",
+        "medicalSpecialty": ["Dentistry", "Cosmetic Dentistry", "Preventive Dentistry"],
+        "founder": {
+            "@type": "Person",
+            "name": "Dr. Guilherme Rodrigues Resende",
+            "jobTitle": "Dentista",
+            "knowsAbout": ["Odontologia Clínica", "Estética Dental", "Odontologia Preventiva"]
+        }
+    }
+    </script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-50 main-header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="assets/img/logo-principal.webp" alt="Avancia Odontologia Logo" class="h-10">
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-brand-blue font-bold border-b-2 border-brand-blue">Home</a>
+                <a href="avancia-institucional.html" class="text-gray-600 hover:text-brand-blue font-medium transition">Institucional</a>
+                <a href="alinhadores.html" class="text-gray-600 hover:text-brand-blue font-medium transition">Alinhadores</a>
+                <a href="https://wa.me/5531996600144" class="bg-brand-blue text-white px-5 py-2 rounded-md font-semibold hover:bg-brand-dark transition">Agendar</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-base font-bold text-brand-blue bg-blue-50 rounded-md">Home</a>
+                <a href="avancia-institucional.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Institucional</a>
+                <a href="alinhadores.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Alinhadores</a>
+                <a href="#" class="block px-3 py-3 text-base font-medium text-gray-300">Implantes (Em breve)</a>
+                <hr class="my-2">
+                <a href="https://wa.me/5531996600144" class="block w-full text-center bg-brand-blue text-white px-3 py-4 rounded-md font-bold">Agendar Avaliação</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-section" id="hero">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="inline-block bg-blue-50 text-brand-blue px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                            Odontologia Premium
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                            Lentes de contato, alinhadores invisíveis e clareamento dental
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            O sorriso que transforma sua vida, com qualidade e cuidado incomparáveis.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                            <a href="https://wa.me/5531996600144" target="_blank" rel="noopener noreferrer" class="cta-button">
+                                AGENDAR AVALIAÇÃO AGORA
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="assets/img/fachada.jpg" alt="Clínica odontológica" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="py-20 bg-brand-bg reveal" id="sobre">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Deposite sua confiança em quem é especialista no que faz.
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    Optar por um profissional experiente é garantir que cada detalhe do seu cuidado será tratado com dedicação, expertise e responsabilidade.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROCEDIMENTOS -->
+        <section class="py-20 bg-white reveal" id="procedimentos">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-brand-blue font-semibold tracking-wider uppercase text-sm block mb-2">Procedimentos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Tratamentos personalizados para transformar seu sorriso</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <article class="bg-white rounded-2xl overflow-hidden card-shadow card-hover border border-gray-100">
+                        <img src="assets/img/lentes-de-contato.jpg" alt="Lentes de contato dental" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Lentes de contato</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Solução ideal para quem busca um sorriso perfeito de forma rápida e minimamente invasiva.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="bg-white rounded-2xl overflow-hidden card-shadow card-hover border border-gray-100">
+                        <img src="assets/img/facetas.jpg" alt="Facetas dentais" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Facetas</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Transformações rápidas e naturais para recuperar autoestima e confiança.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="bg-white rounded-2xl overflow-hidden card-shadow card-hover border border-gray-100">
+                        <img src="assets/img/clareamento.jpg" alt="Clareamento dental" class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Clareamento Dental</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Técnicas modernas e seguras para devolver brilho ao seu sorriso.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 bg-brand-bg reveal" id="faq">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Perguntas Frequentes</h2>
+                <div class="space-y-4">
+                    <div class="accordion-item bg-white rounded-lg overflow-hidden card-shadow">
+                        <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span>Quanto tempo dura o tratamento com alinhadores invisíveis?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-gray-700 leading-relaxed">
+                                O tempo varia de acordo com cada caso, mas em média dura entre 6 a 18 meses.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-white rounded-lg overflow-hidden card-shadow">
+                        <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span>O tratamento com alinhadores invisíveis dói?</span>
+                            <span class="text-xl">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-gray-700 leading-relaxed">
+                                Os alinhadores podem causar um leve desconforto nos primeiros dias de troca de cada novo conjunto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Avancia Odontologia</h3>
+                    <p class="text-gray-400">Clínica de alto padrão em atendimento clínico, estético e preventivo.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="avancia-institucional.html" class="hover:text-white transition">Institucional</a></li>
+                        <li><a href="alinhadores.html" class="hover:text-white transition">Alinhadores</a></li>
+                        <li><a href="https://wa.me/5531996600144" class="hover:text-white transition">Agendar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="politicas-de-privacidade.html" class="hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="termos-de-uso.html" class="hover:text-white transition">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© 2026 Avancia Odontologia. Todos os direitos reservados.</p>
+                <p class="text-sm mt-2">Dr. Guilherme Resende - CRO-MG: [Inserir CRO] | Responsável Técnico</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT BUTTON -->
+    <a href="https://wa.me/5531996600144" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 bg-[#25D366] text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 hover:scale-105 transition-transform z-50 no-underline" title="Agendar pelo WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span class="font-bold hidden md:inline">Agendar pelo WhatsApp</span>
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
