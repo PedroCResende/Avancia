@@ -279,16 +279,179 @@ function initRevealAnimation() {
 }
 
 // =========================================
-// 7. INICIALIZAÇÃO GERAL
+// 7. LGPD COOKIE CONSENT & META PIXEL
+// =========================================
+
+// INSIRA OS IDENTIFICADORES DO CLIENTE AQUI:
+const META_PIXEL_ID = 'INSIRA_META_PIXEL_ID_AQUI';
+const GOOGLE_ANALYTICS_ID = 'INSIRA_GOOGLE_ANALYTICS_ID_AQUI';
+
+function loadTrackingScripts() {
+    const consent = localStorage.getItem('avancia_cookie_consent');
+    if (consent !== 'accepted') return;
+
+    // 1. Injetar Google Analytics (se configurado)
+    if (GOOGLE_ANALYTICS_ID && GOOGLE_ANALYTICS_ID !== 'INSIRA_GOOGLE_ANALYTICS_ID_AQUI') {
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GOOGLE_ANALYTICS_ID);
+    }
+
+    // 2. Injetar Meta Pixel (se configurado)
+    if (META_PIXEL_ID && META_PIXEL_ID !== 'INSIRA_META_PIXEL_ID_AQUI') {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', META_PIXEL_ID);
+        fbq('track', 'PageView');
+    }
+}
+
+function initCookieConsent() {
+    const consent = localStorage.getItem('avancia_cookie_consent');
+
+    // Se já foi aceito, carrega os scripts e sai
+    if (consent === 'accepted') {
+        loadTrackingScripts();
+        initCookieSettingsLink();
+        return;
+    }
+
+    // Se já foi recusado, apenas inicializa o link de configurações e sai
+    if (consent === 'declined') {
+        initCookieSettingsLink();
+        return;
+    }
+
+    // Caso contrário, renderiza o banner
+    showCookieBanner();
+}
+
+function showCookieBanner() {
+    if (document.getElementById('cookie-consent-banner')) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'cookie-consent-banner';
+    banner.className = 'cookie-consent-banner p-6 md:p-8 flex flex-col gap-4 text-left';
+    
+    banner.innerHTML = `
+        <div>
+            <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <i class="fas fa-cookie-bite text-[#3A61A7]"></i> Valorizamos sua privacidade
+            </h4>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência, otimizar o desempenho do site e personalizar anúncios do Google e Meta de acordo com seus interesses. Ao clicar em "Aceitar Todos", você concorda com o uso de cookies em conformidade com a nossa <a href="politicas-de-privacidade.html" class="text-[#3A61A7] hover:underline font-semibold">Política de Privacidade</a>.
+            </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 mt-2">
+            <button id="cookie-accept-all" class="cookie-btn-accept px-6 py-3 rounded-lg text-sm font-semibold flex-1">
+                Aceitar Todos
+            </button>
+            <button id="cookie-decline" class="cookie-btn-decline px-6 py-3 rounded-lg text-sm font-semibold flex-1">
+                Recusar
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Efeito fade-in suave
+    setTimeout(() => {
+        banner.classList.add('show');
+    }, 100);
+
+    // Eventos
+    document.getElementById('cookie-accept-all').addEventListener('click', () => {
+        localStorage.setItem('avancia_cookie_consent', 'accepted');
+        hideCookieBanner(banner);
+        loadTrackingScripts();
+    });
+
+    document.getElementById('cookie-decline').addEventListener('click', () => {
+        localStorage.setItem('avancia_cookie_consent', 'declined');
+        hideCookieBanner(banner);
+    });
+
+    initCookieSettingsLink();
+}
+
+function hideCookieBanner(banner) {
+    banner.classList.remove('show');
+    setTimeout(() => {
+        banner.remove();
+    }, 500);
+}
+
+function initCookieSettingsLink() {
+    // Procura todos os links que gerenciam cookies no footer
+    document.querySelectorAll('.manage-cookies-link').forEach(link => {
+        // Remove event listener antigo se houver para evitar duplicados
+        link.replaceWith(link.cloneNode(true));
+    });
+
+    // Re-seleciona e adiciona evento
+    document.querySelectorAll('.manage-cookies-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('avancia_cookie_consent');
+            showCookieBanner();
+        });
+    });
+}
+
+// =========================================
+// 8. RASTREAMENTO DO WHATSAPP (LEADS)
+// =========================================
+
+function setupWhatsAppTracking() {
+    document.addEventListener('click', (e) => {
+        // Encontra se o clique foi em um link do WhatsApp
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const url = link.getAttribute('href') || '';
+        if (url.includes('wa.me') || url.includes('api.whatsapp.com') || url.includes('whatsapp.com')) {
+            const consent = localStorage.getItem('avancia_cookie_consent');
+            
+            // Só executa o rastreamento se o usuário deu consentimento
+            if (consent === 'accepted') {
+                // Rastreamento no Meta Pixel (evento de Lead padrão)
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead');
+                }
+                // Rastreamento no Google Analytics
+                if (typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'conversion',
+                        'event_label': 'WhatsApp CTA Click'
+                    });
+                }
+            }
+        }
+    });
+}
+
+// =========================================
+// 9. INICIALIZAÇÃO GERAL
 // =========================================
 
 document.addEventListener("DOMContentLoaded", () => {
-
     initMobileMenu();
-
     initHeaderScroll();
-
     initRevealAnimation();
-
     loadGoogleReviews();
+    initCookieConsent();
+    setupWhatsAppTracking();
 });
