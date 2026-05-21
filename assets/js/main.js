@@ -296,7 +296,7 @@ function initRevealAnimation() {
 // =========================================
 
 // INSIRA OS IDENTIFICADORES DO CLIENTE AQUI:
-const META_PIXEL_ID = 'INSIRA_META_PIXEL_ID_AQUI';
+const META_PIXEL_ID = '1002398128933400';
 const GOOGLE_ANALYTICS_ID = 'INSIRA_GOOGLE_ANALYTICS_ID_AQUI';
 
 function loadTrackingScripts() {
