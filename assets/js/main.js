@@ -10,23 +10,36 @@ function toggleAccordion(button) {
     const content = button.nextElementSibling;
     const isActive = content.classList.contains('active');
 
-    // Fecha outros accordions
+    // Fecha outros accordions e reseta seus ícones para "+"
     document.querySelectorAll('.accordion-content.active').forEach(item => {
         if (item !== content) {
             item.classList.remove('active');
-            item.previousElementSibling.classList.remove('active');
+            const prevButton = item.previousElementSibling;
+            prevButton.classList.remove('active');
+            const prevIcon = prevButton.querySelector('.accordion-icon');
+            if (prevIcon) {
+                prevIcon.textContent = '+';
+            }
         }
     });
 
-    // Toggle accordion atual
+    // Toggle accordion atual e atualiza seu ícone (+ ou -)
+    const currentIcon = button.querySelector('.accordion-icon');
     if (isActive) {
         content.classList.remove('active');
         button.classList.remove('active');
+        if (currentIcon) {
+            currentIcon.textContent = '+';
+        }
     } else {
         content.classList.add('active');
         button.classList.add('active');
+        if (currentIcon) {
+            currentIcon.textContent = '−';
+        }
     }
 }
+
 
 // =========================================
 // 2. SMOOTH SCROLL
@@ -454,4 +467,35 @@ document.addEventListener("DOMContentLoaded", () => {
     loadGoogleReviews();
     initCookieConsent();
     setupWhatsAppTracking();
+    initBeforeAfterSliders();
 });
+
+// =========================================
+// 10. SLIDER ANTES E DEPOIS
+// =========================================
+
+function initBeforeAfterSliders() {
+    const sliders = document.querySelectorAll('.before-after-slider');
+    
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        const beforeImg = slider.querySelector('.before-image');
+        const line = slider.querySelector('.slider-line');
+        const button = slider.querySelector('.slider-button');
+        
+        if (!input || !beforeImg || !line || !button) return;
+        
+        const updateSlider = (value) => {
+            beforeImg.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+            line.style.left = `${value}%`;
+            button.style.left = `${value}%`;
+        };
+        
+        // Inicializa com o valor do input (50)
+        updateSlider(input.value);
+        
+        input.addEventListener('input', (e) => {
+            updateSlider(e.target.value);
+        });
+    });
+}

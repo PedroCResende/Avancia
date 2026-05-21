@@ -11,11 +11,11 @@
     <meta property="og:title" content="Alinhadores Transparentes Modernos | Avancia Odontologia">
     <meta property="og:description" content="Tratamento ortodôntico discreto com alinhadores transparentes. Tecnologia digital e planejamento 3D. Agende sua avaliação.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://avanciaodontologia.com.br/assets/img/fachada.webp">
+    <meta property="og:image" content="https://avanciaodontologia.com.br/assets/img/fachada.jpg">
     <meta property="og:url" content="https://avanciaodontologia.com.br/alinhadores.html">
 
     <link rel="canonical" href="https://avanciaodontologia.com.br/alinhadores.html">
-    <link rel="icon" type="image/png" href="assets/img/logo-principal.webp">
+    <link rel="icon" type="image/png" href="assets/img/logo_principal_colorido.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -31,7 +31,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Avancia Odontologia",
-        "image": "assets/img/fachada.webp",
+        "image": "assets/img/fachada.jpg",
         "description": "Clínica odontológica especializada em alinhadores transparentes modernos com tecnologia digital",
         "address": {
             "@type": "PostalAddress",
@@ -54,7 +54,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50 main-header">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-            <img src="assets/img/logo-principal.webp" alt="Avancia Odontologia Logo" class="h-10">
+            <img src="assets/img/logo_principal_colorido.png" alt="Avancia Odontologia Logo" class="h-12">
         </div>
 
         <div class="hidden md:flex items-center space-x-8">
@@ -73,9 +73,9 @@
 
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl">
         <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Home</a>
             <a href="avancia-institucional.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Institucional</a>
             <a href="alinhadores.html" class="block px-3 py-3 text-base font-bold text-[#3A61A7] bg-blue-50 rounded-md">Alinhadores</a>
-            <a href="#" class="block px-3 py-3 text-base font-medium text-gray-300">Implantes (Em breve)</a>
             <hr class="my-2">
             <a href="https://wa.me/5531996600144" class="block w-full text-center bg-[#3A61A7] text-white px-3 py-4 rounded-md font-bold">Agendar Avaliação</a>
         </div>
@@ -153,7 +153,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="flex justify-center">
-                        <img src="assets/img/logo-principal.webp" alt="Alinhadores Transparentes" class="rounded-lg">
+                        <img src="assets/img/logo_principal_colorido.png" alt="Alinhadores Transparentes" class="rounded-lg">
                     </div>
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -329,58 +329,63 @@
         <section class="py-20 bg-white reveal" id="faq">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Perguntas Frequentes</h2>
-                <div class="space-y-4">
+                <div class="accordion-container card-shadow">
+                    <!-- Item 1 -->
                     <div class="accordion-item">
                         <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span class="accordion-icon">+</span>
                             <span>O tratamento é doloroso?</span>
-                            <span class="text-xl">+</span>
                         </button>
                         <div class="accordion-content">
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed font-light">
                                 Não. Os alinhadores transparentes são muito mais confortáveis que os aparelhos tradicionais. Você pode sentir uma leve pressão nos primeiros dias de cada novo alinhador, mas não há dor. <br> A maioria dos pacientes se adapta rapidamente.
                             </p>
                         </div>
                     </div>
+                    <!-- Item 2 -->
                     <div class="accordion-item">
                         <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span class="accordion-icon">+</span>
                             <span>Quanto tempo dura o tratamento?</span>
-                            <span class="text-xl">+</span>
                         </button>
                         <div class="accordion-content">
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed font-light">
                                 O tempo varia de acordo com a complexidade do caso, mas geralmente leva entre 6 a 18 meses. Durante a consulta inicial, o Dr. Guilherme poderá estimar o tempo específico para o seu caso.
                             </p>
                         </div>
                     </div>
+                    <!-- Item 3 -->
                     <div class="accordion-item">
                         <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span class="accordion-icon">+</span>
                             <span>Qual é o custo do tratamento?</span>
-                            <span class="text-xl">+</span>
                         </button>
                         <div class="accordion-content">
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed font-light">
                                 O custo varia dependendo da complexidade do seu caso. Oferecemos diferentes planos de pagamento para tornar o tratamento mais acessível. Agende uma avaliação para receber um orçamento personalizado.
                             </p>
                         </div>
                     </div>
+                    <!-- Item 4 -->
                     <div class="accordion-item">
                         <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span class="accordion-icon">+</span>
                             <span>Posso comer e beber normalmente?</span>
-                            <span class="text-xl">+</span>
                         </button>
                         <div class="accordion-content">
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed font-light">
                                 Sim! Como os alinhadores são removíveis, você pode tirá-los para comer e beber o que quiser. Recomendamos remover os alinhadores antes de consumir alimentos quentes ou bebidas coloridas para evitar manchas.
                             </p>
                         </div>
                     </div>
+                    <!-- Item 5 -->
                     <div class="accordion-item">
                         <button class="accordion-button" onclick="toggleAccordion(this)">
+                            <span class="accordion-icon">+</span>
                             <span>Como faço a higiene bucal?</span>
-                            <span class="text-xl">+</span>
                         </button>
                         <div class="accordion-content">
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-gray-700 leading-relaxed font-light">
                                 É muito fácil! Remova os alinhadores e escove os dentes normalmente. Você também pode limpar os alinhadores com água e uma escova de dentes macia. Isso torna a higiene bucal muito mais simples do que com os aparelhos tradicionais.
                             </p>
                         </div>
@@ -416,16 +421,16 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-4">Avancia Odontologia</h3>
-                    <p class="text-gray-400">Alinhadores transparentes modernos com tecnologia digital.</p>
+                    <p class="text-gray-400">Clínica de alto padrão em atendimento clínico, estético e preventivo.</p>
                 </div>
                 
                 <div>
                     <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#beneficios" class="hover:text-white transition">Benefícios</a></li>
-                        <li><a href="#como-funciona" class="hover:text-white transition">Como Funciona</a></li>
-                        <li><a href="#avaliacoes" class="hover:text-white transition">Avaliações</a></li>
-                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="avancia-institucional.html" class="hover:text-white transition">Institucional</a></li>
+                        <li><a href="alinhadores.html" class="hover:text-white transition">Alinhadores</a></li>
+                        <li><a href="https://wa.me/5531996600144" class="hover:text-white transition">Agendar</a></li>
                     </ul>
                 </div>
                 
@@ -441,7 +446,7 @@
             
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
                 <p>© 2026 Avancia Odontologia. Todos os direitos reservados.</p>
-                <p class="text-sm mt-2">Dr. Guilherme - CRO-MG: [Inserir CRO] | Responsável Técnico</p>
+                <p class="text-sm mt-2">Dr. Guilherme Rodrigues Resende - CRO-MG 19875 | Responsável Técnico</p>
             </div>
         </div>
     </footer>

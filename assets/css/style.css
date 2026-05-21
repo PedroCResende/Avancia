@@ -99,34 +99,60 @@ body {
 }
 
 /* Accordion (FAQ) */
-.accordion-item { border-bottom: 1px solid #e0e0e0; }
+.accordion-container {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.accordion-item {
+    border-bottom: 1px solid #e2e8f0;
+}
+.accordion-item:last-child {
+    border-bottom: none;
+}
 .accordion-button {
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 20px;
+    padding: 18px 24px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 12px;
     width: 100%;
     text-align: left;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: none;
     font-weight: 600;
-    color: #333;
+    color: #1e293b;
+    font-size: 15px;
+    line-height: 1.5;
 }
-.accordion-button:hover { background-color: #f0f0f0; }
-.accordion-button.active { background-color: #E8F2F9; color: #3A61A7; }
-
+.accordion-button:hover {
+    background-color: #f8fafc;
+}
+.accordion-button.active {
+    color: #1e293b;
+}
+.accordion-icon {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    min-width: 16px;
+    text-align: center;
+    user-select: none;
+}
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 20px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 24px;
+    background-color: #ffffff;
 }
 .accordion-content.active {
     max-height: 500px;
-    padding: 20px;
+    padding: 0 24px 20px 52px;
 }
+
 
 /* Avaliações (Google Reviews) */
 .star-rating { color: #FFD700; font-size: 16px; letter-spacing: 2px; }
@@ -239,6 +265,137 @@ body {
 .manage-cookies-link:hover {
     text-decoration: underline;
 }
+
+/* REDESENHO DA HOME COM BASE NOS PRINTS */
+
+.hero-section-redesign {
+    background-image: url('../img/Perfil-Gui.jpg');
+    background-size: cover;
+    background-position: center right;
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero-section-redesign {
+        background-position: 75% center;
+        min-height: 550px;
+    }
+}
+
+.hero-overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-overlay-dark {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.65) 100%);
+    }
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Botão Verde de WhatsApp no Hero */
+.cta-button-green {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.cta-button-green:hover {
+    background-color: #20ba59;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+/* Badges nos cards de procedimentos */
+.badge-procedure {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: #6BBEEF;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   SLIDER ANTES/DEPOIS (COMPARAÇÃO 50/50)
+========================================= */
+.before-after-slider {
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+}
+
+.before-after-slider .before-image {
+    transition: clip-path 0.05s ease-out;
+}
+
+.before-after-slider .slider-line {
+    transition: left 0.05s ease-out;
+}
+
+.before-after-slider .slider-button {
+    transition: left 0.05s ease-out, transform 0.2s ease;
+}
+
+.before-after-slider:hover .slider-button {
+    transform: scale(1.1);
+}
+
+.before-after-slider .slider-input {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.before-after-slider .slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 300px;
+    cursor: ew-resize;
+    background: transparent;
+}
+
+.before-after-slider .slider-input::-moz-range-thumb {
+    width: 40px;
+    height: 300px;
+    cursor: ew-resize;
+    background: transparent;
+    border: none;
+}
+
+
 
 
 
