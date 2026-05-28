@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Não Encontrada | Avancia Odontologia</title>
+    <meta name="description" content="Desculpe, a página que você está procurando não existe ou foi movida.">
+    <meta name="theme-color" content="#3A61A7">
+
+    <link rel="icon" type="image/png" href="assets/img/logo_principal_colorido.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3A61A7',
+                            dark: '#2D4A7E',
+                            light: '#6BBEEF',
+                            bg: '#F5F8FC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-bg min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-xl w-full text-center bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100 reveal active">
+        <!-- Logo -->
+        <div class="flex justify-center mb-8">
+            <img src="assets/img/logo_principal_colorido.png" alt="Avancia Odontologia Logo" class="h-16">
+        </div>
+
+        <!-- 404 Illustration / Icon -->
+        <div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center bg-blue-50 rounded-full">
+            <span class="text-7xl font-extrabold text-brand-blue tracking-tighter">404</span>
+            <div class="absolute bottom-1 right-1 bg-[#25D366] text-white p-3 rounded-full shadow-md animate-bounce">
+                <i class="fas fa-comment-dots text-xl"></i>
+            </div>
+        </div>
+
+        <!-- Title and Subtitle -->
+        <h1 class="text-2xl md:text-3xl font-black text-gray-900 mb-4 uppercase tracking-tight">
+            Ops! Página Não Encontrada
+        </h1>
+        <p class="text-gray-600 text-sm md:text-base mb-8 leading-relaxed font-light">
+            O sorriso que você está procurando não está neste endereço, mas podemos te ajudar a encontrar o caminho de volta!
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/"
+                class="bg-brand-blue text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-dark transition shadow-md flex items-center justify-center gap-2">
+                <i class="fas fa-home"></i>
+                Voltar para o Início
+            </a>
+            <a href="https://wa.me/5531996600144" target="_blank" rel="noopener noreferrer"
+                class="bg-[#25D366] text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-[#20ba59] transition shadow-md flex items-center justify-center gap-2">
+                <i class="fab fa-whatsapp"></i>
+                Agendar Avaliação
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

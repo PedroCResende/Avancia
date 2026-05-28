@@ -1,0 +1,37 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/assets/img/logo_principal_colorido.png"
+  status = 200
+
+[[redirects]]
+  from = "/apple-touch-icon.png"
+  to = "/assets/img/logo_principal_colorido.png"
+  status = 200
+
+[[redirects]]
+  from = "/apple-touch-icon-precomposed.png"
+  to = "/assets/img/logo_principal_colorido.png"
+  status = 200
+
+[[redirects]]
+  from = "/avancia-institucional"
+  to = "/avancia-institucional.html"
+  status = 200
+
+[[redirects]]
+  from = "/alinhadores"
+  to = "/alinhadores.html"
+  status = 200
+
+[[redirects]]
+  from = "/politicas-de-privacidade"
+  to = "/politicas-de-privacidade.html"
+  status = 200
+
+[[redirects]]
+  from = "/termos-de-uso"
+  to = "/termos-de-uso.html"
+  status = 200

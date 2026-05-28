@@ -365,7 +365,7 @@ function showCookieBanner() {
                 <i class="fas fa-cookie-bite text-[#3A61A7]"></i> Valorizamos sua privacidade
             </h4>
             <p class="text-sm text-gray-600 leading-relaxed">
-                Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência, otimizar o desempenho do site e personalizar anúncios do Google e Meta de acordo com seus interesses. Ao clicar em "Aceitar Todos", você concorda com o uso de cookies em conformidade com a nossa <a href="politicas-de-privacidade.html" class="text-[#3A61A7] hover:underline font-semibold">Política de Privacidade</a>.
+                Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência, otimizar o desempenho do site e personalizar anúncios do Google e Meta de acordo com seus interesses. Ao clicar em "Aceitar Todos", você concorda com o uso de cookies em conformidade com a nossa <a href="/politicas-de-privacidade" class="text-[#3A61A7] hover:underline font-semibold">Política de Privacidade</a>.
             </p>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 mt-2">
